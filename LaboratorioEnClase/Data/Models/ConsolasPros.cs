@@ -25,7 +25,7 @@ namespace LaboratorioEnClase.Data.DataAcces
                 Nombre = nombre;
                 Compania = compania;
                 Fecha_lanzamiento = fecha_lanzamiento;
-            Generacion = generacion;
+                Generacion = generacion;
 
             }
             // Método para mostrar información del JUEGO

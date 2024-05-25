@@ -16,6 +16,58 @@ namespace LaboratorioEnClase.Data
         string connectionString = "server=localhost;database=laboratorio_en_clase;user=root;password=EggTortuga78";
         MySqlConnection connection;
 
+        //Prueba conecta
+        public bool probarConexion()
+        {
+
+            //Explicar
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        //Pongo en la mera base de datos
+
+        public DataTable imprimir()
+        {
+            DataTable tabla = new DataTable();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM catalogo_consolas";
+
+                //Explicar
+
+                using (MySqlCommand command = new MySqlCommand(sql, connection))
+                {
+
+                    //Explicar
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+
+                        //Explicar
+
+                        adapter.Fill(tabla);
+                    }
+                }
+            }
+
+            return tabla;
+        }
+
         //constructor
         public ConexionPro()
         {
